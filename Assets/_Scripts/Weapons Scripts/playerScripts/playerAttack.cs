@@ -11,10 +11,17 @@ public class playerAttack : MonoBehaviour
     private float nextTimeToFire;
     public float damage = 20f;
 
+    //private Animator zoomCameraAnim;
+    //private bool zoomed;
+    //private Camera mainCam;
+    //private GameObject crosshair;
+
     void Awake() {
         weapon_Manager = GetComponent<weaponManager>();
-
-    }
+        //zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
+        //crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
+        //mainCam = Camera.main;
+    } //Awake()
 
     // Start is called before the first frame update
     void Start() {
@@ -24,7 +31,7 @@ public class playerAttack : MonoBehaviour
     // Update is called once per frame
     void Update() {
         weaponShoot();
-    }
+    } //Update()
 
     void weaponShoot() {
         if (weapon_Manager.GetCurrentSelectedWeapon().fireType == WeaponFireType.MULTIPLE) {
@@ -45,5 +52,23 @@ public class playerAttack : MonoBehaviour
             }
 
         }
-    }
+    } //weaponShoot()
+
+    //void ZoomInAndOut() {
+    //    if (weapon_Manager.GetCurrentSelectedWeapon().weapon_Aim == WeaponAim.AIM) {
+
+    //        if (Input.GetMouseButtonDown(1)) {
+    //            zoomCameraAnim.Play(AnimationTags.ZOOM_IN_ANIM);
+    //            crosshair.SetActive(false);
+    //        }
+    //        if (Input.GetMouseButtonUp(1))
+    //        {
+    //            zoomCameraAnim.Play(AnimationTags.ZOOM_OUT_ANIM);
+    //            crosshair.SetActive(true);
+    //        }
+
+    //    }
+    //} //ZoomInAndOut
+
+
 }
