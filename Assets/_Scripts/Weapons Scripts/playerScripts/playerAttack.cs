@@ -31,6 +31,7 @@ public class playerAttack : MonoBehaviour
     // Update is called once per frame
     void Update() {
         weaponShoot();
+        ZoomInAndOut();
     } //Update()
 
     void weaponShoot() {
@@ -40,7 +41,7 @@ public class playerAttack : MonoBehaviour
                 nextTimeToFire = Time.time + 1f / fireRate;
                 weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
 
-                //BulletFired();
+                BulletFired();
             }
 
         } else {
@@ -48,7 +49,7 @@ public class playerAttack : MonoBehaviour
             if (Input.GetMouseButtonDown(0)) {
                 weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
 
-                //BulletFired();
+                BulletFired();
             }
 
         }
@@ -68,5 +69,14 @@ public class playerAttack : MonoBehaviour
 
     } //ZoomInAndOut
 
+    void BulletFired() {
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit)) {
+            print("WE HIT: " + hit.transform.gameObject.name);
+        }
+
+    } //bulletFired
 
 }

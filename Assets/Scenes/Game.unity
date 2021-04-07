@@ -447,6 +447,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!82 &354728859 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8888849742644421805, guid: b9555b17a4a258d4aa9ff6bf88843892,
+    type: 3}
+  m_PrefabInstance: {fileID: 8663994872413303640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &398857431
 Mesh:
   m_ObjectHideFlags: 0
@@ -5754,7 +5760,7 @@ PrefabInstance:
     - target: {fileID: 562102471810790282, guid: b9555b17a4a258d4aa9ff6bf88843892,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0755
+      value: -0.0739
       objectReference: {fileID: 0}
     - target: {fileID: 562102471810790282, guid: b9555b17a4a258d4aa9ff6bf88843892,
         type: 3}
@@ -6536,6 +6542,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 6436286987603975841, guid: b9555b17a4a258d4aa9ff6bf88843892,
+        type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 354728859}
     - target: {fileID: 6441525280891248287, guid: b9555b17a4a258d4aa9ff6bf88843892,
         type: 3}
       propertyPath: m_IsActive
@@ -6545,6 +6556,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441525280891667135, guid: b9555b17a4a258d4aa9ff6bf88843892,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441525280891667135, guid: b9555b17a4a258d4aa9ff6bf88843892,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6441525280898673987, guid: b9555b17a4a258d4aa9ff6bf88843892,
         type: 3}
@@ -6570,6 +6591,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037892102307813414, guid: b9555b17a4a258d4aa9ff6bf88843892,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8123306900527742696, guid: b9555b17a4a258d4aa9ff6bf88843892,
         type: 3}
