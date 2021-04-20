@@ -595,7 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c105483d57c9e6144bee3dc990f23e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  run_Speed: 4
+  run_Speed_Slow: 3
+  run_Speed_Fast: 15
   chase_Distance: 7
   attack_Distance: 1.8
   chase_After_Attack_Distance: 2
@@ -603,6 +604,7 @@ MonoBehaviour:
   patrol_Radius_Max: 60
   patrol_For_This_Time: 15
   wait_Before_Attack: 2
+  attack_Point: {fileID: 0}
 --- !u!1 &2356359266028662893
 GameObject:
   m_ObjectHideFlags: 0

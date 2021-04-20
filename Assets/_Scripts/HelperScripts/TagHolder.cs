@@ -18,6 +18,7 @@ public class AnimationTags
 public class Tags
 {
     public const string LOOK_ROOT = "Look Root";
+    public const string MAIN_CAMERA = "Main Camera";
     public const string ZOOM_CAMERA = "FP Camera";
     public const string CROSSHAIR = "Crosshair";
 

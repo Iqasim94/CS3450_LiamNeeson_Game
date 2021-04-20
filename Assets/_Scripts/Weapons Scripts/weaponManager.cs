@@ -20,7 +20,33 @@ public class weaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1)) {
+        //Use Scroll Wheel to switch weapon
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            if (current_Weapon_Index < 2)
+            {
+                TurnOnSelectedWeapon(current_Weapon_Index + 1);
+            }
+            else
+            {
+                TurnOnSelectedWeapon(0);
+            }
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            if (current_Weapon_Index > 0)
+            {
+                TurnOnSelectedWeapon(current_Weapon_Index - 1);
+            }
+            else
+            {
+                TurnOnSelectedWeapon(2);
+            }
+
+        }
+
+        //Use num keys to swtich weapons
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
             TurnOnSelectedWeapon(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)) { 
