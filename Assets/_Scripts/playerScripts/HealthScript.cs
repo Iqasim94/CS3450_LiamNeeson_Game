@@ -8,18 +8,10 @@ public class HealthScript : MonoBehaviour
     private EnemyAnimator enemy_Anim;
     private NavMeshAgent navAgent;
     private EnemyController enemy_Controller;
-    
-    
-    
-    
-    private playerAttack player_Anim;
-
-
-
 
     public float health = 100f;
     public bool is_Player, is_Enemy;
-    private bool is_Dead;
+    public bool is_Dead;
 
     
     void Awake()
@@ -39,7 +31,6 @@ public class HealthScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void ApplyDamage(float damage)
     {
         if (is_Dead)
@@ -108,17 +99,8 @@ public class HealthScript : MonoBehaviour
     }
 
     void TurnOffGameObject ()
-    {
-        
+    {        
         gameObject.SetActive(false);
-        
-        
-        
-        
-        player_Anim.death();
-
-
-
 
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }

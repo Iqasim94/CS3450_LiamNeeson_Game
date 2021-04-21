@@ -12,7 +12,6 @@ public class playerAttack : MonoBehaviour
     public float damage = 20f;
 
     private Animator zoomCameraAnim;
-    public Animator death_Anim;
     private bool zoomed;
     private Camera mainCam;
     private GameObject crosshair;
@@ -21,7 +20,6 @@ public class playerAttack : MonoBehaviour
     {
         weapon_Manager = GetComponent<weaponManager>();
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
-        death_Anim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.MAIN_CAMERA).GetComponent<Animator>();
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCam = Camera.main;
     } //Awake()
@@ -82,9 +80,4 @@ public class playerAttack : MonoBehaviour
             }  
         }
     } //bulletFired
-
-    void death()
-    {
-        death_Anim.Play(AnimationTags.DEAD_TRIGGER);
-    }
 }
