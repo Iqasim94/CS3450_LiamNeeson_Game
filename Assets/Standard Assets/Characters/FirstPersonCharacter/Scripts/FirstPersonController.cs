@@ -42,6 +42,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        public float stamina;
+        private float staminaStart;
+
         // Use this for initialization
         private void Start()
         {
@@ -55,6 +58,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+            stamina = 200f;
+            staminaStart = stamina - 1f;
         }
 
 
@@ -104,6 +110,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
             Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
                                m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
+
+            if (Input.GetKey(KeyCode.LeftShift) && m_MoveDir.x != desiredMove.x * speed && m_MoveDir.z != desiredMove.z * speed)
+            {
+                if (stamina <= 0)
+                {
+                    stamina = 0;
+                }
+                else
+                {
+                    stamina = stamina - 1;
+                }
+            }
+            else if (!Input.GetKey(KeyCode.LeftShift))
+            {
+                if (stamina <= staminaStart)
+                {
+                    stamina = stamina + 1;
+                }
+            }
 
             m_MoveDir.x = desiredMove.x*speed;
             m_MoveDir.z = desiredMove.z*speed;
@@ -215,7 +240,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
             // set the desired speed to be walking or running
-            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            //speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+
+            if (stamina == 0)
+            {
+                speed = m_WalkSpeed;
+            }
+            else
+            {
+                speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            }
+
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
@@ -231,6 +266,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 StopAllCoroutines();
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
+
+//            if (GetInput.GetKeyDown(KeyCode.LeftShift))
         }
 
 

@@ -13,7 +13,12 @@ public class HealthScript : MonoBehaviour
     public bool is_Player, is_Enemy;
     public bool is_Dead;
 
-    
+    private EnemyAudio enemyAudio;
+    private PlayerStats player_Stats;
+    private EnemyStats enemy_Stats;
+
+//    private GameObject enemyHealth;
+
     void Awake()
     {
         if (is_Enemy)
@@ -21,13 +26,13 @@ public class HealthScript : MonoBehaviour
             enemy_Anim = GetComponent<EnemyAnimator>();
             enemy_Controller = GetComponent<EnemyController>();
             navAgent = GetComponent<NavMeshAgent>();
-
-            //get enemy audio
+            enemy_Stats = GetComponent<EnemyStats>();
+            enemyAudio = GetComponentInChildren<EnemyAudio>();
         }   
         
         if (is_Player)
         {
-
+            player_Stats = GetComponent<PlayerStats>();
         }
     }
 
@@ -42,14 +47,17 @@ public class HealthScript : MonoBehaviour
 
         if (is_Player) //health UI
         {
-
+            player_Stats.Display_HealthStats(health);
         }
 
         if (is_Enemy) //health UI
         {
+            enemy_Stats.Display_HealthStats(health);
+
             if (enemy_Controller.Enemy_State == EnemyState.PATROL)
             {
                 enemy_Controller.chase_Distance = 50f;
+
             }
         }
 
@@ -73,6 +81,7 @@ public class HealthScript : MonoBehaviour
             enemy_Anim.enabled = false;
 
             // StartCoroutine
+            StartCoroutine(DeadSound());
 
             //EnemyManager - spawn more enemies
         }
@@ -103,5 +112,12 @@ public class HealthScript : MonoBehaviour
         gameObject.SetActive(false);
 
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
+    IEnumerator DeadSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        enemyAudio.Play_DeadSound();
+        GameObject.FindWithTag(Tags.ENEMY_HEALTH).SetActive(false);
     }
 }
