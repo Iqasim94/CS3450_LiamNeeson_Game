@@ -9,6 +9,7 @@ TagManager:
   - FP Camera
   - Enemy
   - Enemy Health
+  - Ladder
   layers:
   - Default
   - TransparentFX
