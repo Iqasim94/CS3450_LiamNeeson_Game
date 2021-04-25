@@ -27,7 +27,8 @@ public class weaponHandler : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void ShootAnimation() {
+    public void ShootAnimation()
+    {
         anim.SetTrigger(AnimationTags.SHOOT_TRIGGER);
     }
 

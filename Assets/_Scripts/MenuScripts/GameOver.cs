@@ -18,6 +18,7 @@ public class GameOver : MonoBehaviour
         if ((GetComponent<HealthScript>().is_Player) && GetComponent<HealthScript>().is_Dead)
         {
             TurnOnGameOver();
+            //Display highscore
         }
     }
 

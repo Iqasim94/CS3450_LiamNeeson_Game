@@ -7,18 +7,17 @@ public class MainMenuController : MonoBehaviour {
 
 	public void ButtonHandlerPlay ()
 	{
+		PlayerPrefs.DeleteAll();
 		SceneManager.LoadScene(1);
 	}
 
-/*	public void ButtonHandlerLoad()
+	public void ButtonHandlerLoad()
 	{
-		Load feature
+		SceneManager.LoadScene(1);
 	}
-*/
+
 	public void ButtonHandlerQuit ()
 	{
 		Application.Quit();
 	}
-
-
 }

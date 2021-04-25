@@ -18,7 +18,6 @@ public class Menus : MonoBehaviour
         gunShot = GetComponent<playerAttack>();
         pauseMenu.SetActive(false);
         crossHair.SetActive(true);
-//        gunShot.SetActive(true);
     }
 
     // Update is called once per frame
@@ -40,7 +39,6 @@ public class Menus : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         crossHair.SetActive(false);
-//        gunShot.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
         FPSController.GetComponent<FirstPersonController>().enabled = false;
@@ -52,7 +50,6 @@ public class Menus : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         crossHair.SetActive(true);
-//        gunShot.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
         FPSController.GetComponent<FirstPersonController>().enabled = true;
@@ -65,11 +62,16 @@ public class Menus : MonoBehaviour
         ResumeGame();
     }
 
-    /*	public void ButtonHandlerSave()
-        {
-            Save feature
-        }
-    */
+  	public void ButtonHandlerSave()
+    { 
+        //level
+        //player location/rotation
+        //player health
+        //player score
+        //enemy numbers
+        //enemy locations
+    }
+    
     public void ButtonHandlerQuit()
     {
         SceneManager.LoadScene(0);

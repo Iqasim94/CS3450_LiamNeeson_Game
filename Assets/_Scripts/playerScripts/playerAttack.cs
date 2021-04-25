@@ -44,12 +44,12 @@ public class playerAttack : MonoBehaviour
 
         } else {
 
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0))
+            {
                 weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
 
                 BulletFired();
             }
-
         }
     } //weaponShoot()
 

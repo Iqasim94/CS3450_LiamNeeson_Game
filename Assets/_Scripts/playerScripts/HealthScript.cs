@@ -57,7 +57,6 @@ public class HealthScript : MonoBehaviour
             if (enemy_Controller.Enemy_State == EnemyState.PATROL)
             {
                 enemy_Controller.chase_Distance = 50f;
-
             }
         }
 
@@ -83,7 +82,7 @@ public class HealthScript : MonoBehaviour
             // StartCoroutine
             StartCoroutine(DeadSound());
 
-            //EnemyManager - spawn more enemies
+            ScoreScript.instance.AddPoints(10);
         }
 
         if (is_Player)
