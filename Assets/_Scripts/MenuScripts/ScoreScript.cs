@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class ScoreScript : MonoBehaviour
 {
     public static ScoreScript instance;
     public Text scoreText;
-    public int score = 0; 
+    public int score = 0;
+    private Transform player;
 
     private void Awake()
     {
@@ -16,6 +18,7 @@ public class ScoreScript : MonoBehaviour
 
     void Start()
     {
+        LoadGame();
         scoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
@@ -25,8 +28,19 @@ public class ScoreScript : MonoBehaviour
         scoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 
-    public void SaveGame()
+    public void LoadGame()
     {
-        PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("HighScore"));
+        //get player
+        player = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+        //assign player coordinates
+        player.transform.position = new Vector3(
+            PlayerPrefs.GetFloat("PlayerPositionX"), 
+            PlayerPrefs.GetFloat("PlayerPositionY"), 
+            PlayerPrefs.GetFloat("PlayerPositionZ"));
+        //assign player rotation
+        player.transform.rotation = Quaternion.Euler(0, 
+            PlayerPrefs.GetFloat("PlayerLookX"), 
+            PlayerPrefs.GetFloat("PlayerLookY"));
+        //
     }
 }

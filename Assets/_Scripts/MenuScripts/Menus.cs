@@ -10,14 +10,13 @@ public class Menus : MonoBehaviour
     public static bool isPaused;
     public GameObject FPSController;
     public GameObject crossHair;
-    public playerAttack gunShot;
+    private playerAttack gunShot;
 
     // Start is called before the first frame update
     void Start()
     {
         gunShot = GetComponent<playerAttack>();
-        pauseMenu.SetActive(false);
-        crossHair.SetActive(true);
+        ResumeGame();
     }
 
     // Update is called once per frame
@@ -63,15 +62,31 @@ public class Menus : MonoBehaviour
     }
 
   	public void ButtonHandlerSave()
-    { 
-        //level
-        //player location/rotation
-        //player health
+    {
         //player score
+        PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("HighScore"));
+
+        //player position and rotation
+        PlayerPrefs.SetFloat("PlayerPositionX", FPSController.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPositionY", FPSController.transform.position.y);
+        PlayerPrefs.SetFloat("PlayerPositionZ", FPSController.transform.position.z);
+        PlayerPrefs.SetFloat("PlayerLookX", FPSController.transform.rotation.x);
+        PlayerPrefs.SetFloat("PlayerLookY", FPSController.transform.rotation.y);
+        PlayerPrefs.Save();
+
+        //player health
+
+
+        //level
+
+
         //enemy numbers
+
+
         //enemy locations
+
     }
-    
+
     public void ButtonHandlerQuit()
     {
         SceneManager.LoadScene(0);
