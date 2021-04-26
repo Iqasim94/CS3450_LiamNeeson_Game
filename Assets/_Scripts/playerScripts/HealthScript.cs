@@ -17,7 +17,6 @@ public class HealthScript : MonoBehaviour
     private PlayerStats player_Stats;
     private EnemyStats enemy_Stats;
 
-//    private GameObject enemyHealth;
 
     void Awake()
     {

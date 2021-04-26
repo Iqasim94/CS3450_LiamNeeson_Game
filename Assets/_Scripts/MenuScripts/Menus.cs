@@ -63,28 +63,7 @@ public class Menus : MonoBehaviour
 
   	public void ButtonHandlerSave()
     {
-        //player score
-        PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("HighScore"));
-
-        //player position and rotation
-        PlayerPrefs.SetFloat("PlayerPositionX", FPSController.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerPositionY", FPSController.transform.position.y);
-        PlayerPrefs.SetFloat("PlayerPositionZ", FPSController.transform.position.z);
-        PlayerPrefs.SetFloat("PlayerLookX", FPSController.transform.rotation.x);
-        PlayerPrefs.SetFloat("PlayerLookY", FPSController.transform.rotation.y);
-        PlayerPrefs.Save();
-
-        //player health
-
-
-        //level
-
-
-        //enemy numbers
-
-
-        //enemy locations
-
+        GetComponent<Data>().SavePlayer();
     }
 
     public void ButtonHandlerQuit()

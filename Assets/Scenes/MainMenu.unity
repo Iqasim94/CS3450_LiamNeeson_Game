@@ -294,8 +294,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 836701868}
-        m_MethodName: ButtonHandlerLoad
+      - m_Target: {fileID: 8058708569221635232, guid: b9555b17a4a258d4aa9ff6bf88843892,
+          type: 3}
+        m_MethodName: LoadPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
