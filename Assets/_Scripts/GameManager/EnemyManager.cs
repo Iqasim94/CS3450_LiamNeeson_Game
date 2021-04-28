@@ -7,12 +7,13 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager instance;
 
     [SerializeField]
-    private GameObject enemy_Prefab;
-
-    public Transform[] enemy_SpawnPoints;
+    private GameObject enemy_Prefab, NPC_Prefab, Key_Prefab;
 
     [SerializeField]
-    private int enemy_Count;
+    public int enemy_Count;
+
+    public Transform[] enemy_SpawnPoints;
+    public Transform[] NPC_SpawnPoints;
 
 
     void Awake()
@@ -23,6 +24,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         SpawnEnemies();
+        SpawnNPC();
     }
 
     void MakeInstance()
@@ -39,16 +41,43 @@ public class EnemyManager : MonoBehaviour
 
         for (int i = 0; i < enemy_SpawnPoints.Length-1; i++)
         {
+            if (index == 0)
+            {
+                break;
+            }
+
             Instantiate(enemy_Prefab, enemy_SpawnPoints[i].position, Quaternion.identity);
             index--;
         }
 
         for (int i = 0; i < index; i++)
         {
+            if (index == 0)
+            {
+                break;
+            }
+
             Instantiate(enemy_Prefab, enemy_SpawnPoints[Random.Range(0, enemy_SpawnPoints.Length - 1)].position, Quaternion.identity);
             index--;
         }
+    }
 
-        enemy_Count = 0;
+    void SpawnNPC()
+    {
+        int NPC = Random.Range(0, NPC_SpawnPoints.Length - 1);
+        int Key = Random.Range(0, NPC_SpawnPoints.Length - 1);
+
+        while (Key == NPC)
+        {
+            Key = Random.Range(0, NPC_SpawnPoints.Length - 1);
+        }
+
+        Instantiate(NPC_Prefab, NPC_SpawnPoints[NPC].position, Quaternion.identity);
+        Instantiate(Key_Prefab, NPC_SpawnPoints[Key].position, Quaternion.identity);
+    }
+
+    public void enemyDeath()
+    {
+        enemy_Count -= 1;
     }
 }

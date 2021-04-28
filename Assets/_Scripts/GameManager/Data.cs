@@ -6,11 +6,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 //Class for centralizing all the data for saving
 public class Data : MonoBehaviour
 {
-    public float health = 100f;
-    public float posX = 25.01f;
-    public float posY = -3f;
-    public float posZ = 38.776f;
-    public int score = 0;
+    public float health;
+    public float posX;
+    public float posY;
+    public float posZ;
+//    public int score;
     //level
     //enemy numbers
     //enemy locations
@@ -24,7 +24,7 @@ public class Data : MonoBehaviour
         posY = GetComponent<FirstPersonController>().transform.position.y;
         posZ = GetComponent<FirstPersonController>().transform.position.z;
 
-        score = ScoreScript.instance.score;
+//        score = ScoreScript.instance.score;
     }
 
     public void SavePlayer()
@@ -35,7 +35,7 @@ public class Data : MonoBehaviour
         posY = GetComponent<FirstPersonController>().transform.position.y;
         posZ = GetComponent<FirstPersonController>().transform.position.z;
 
-        score = ScoreScript.instance.score;
+//        score = ScoreScript.instance.score;
 
         SaveSystem.SavePlayer(this);
     }
@@ -52,6 +52,6 @@ public class Data : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
 
-        score = data.score;
+//        score = data.score;
     }
 }

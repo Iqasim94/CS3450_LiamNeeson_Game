@@ -10,7 +10,7 @@ public class PlayerData
     //public int level;
     public float health;
     public float[] position;
-    public int score;
+//    public int score;
 
     public PlayerData(Data player)
     {
@@ -21,6 +21,6 @@ public class PlayerData
         position[1] = player.posY;
         position[2] = player.posZ;
 
-        score = player.score;
+//        score = player.score;
     }
 }

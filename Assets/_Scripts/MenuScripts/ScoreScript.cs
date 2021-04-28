@@ -8,7 +8,8 @@ public class ScoreScript : MonoBehaviour
 {
     public static ScoreScript instance;
     public Text scoreText;
-    public int score = 0;
+    public Text levelText;
+//    public int score = 0;
 
     private void Awake()
     {
@@ -17,12 +18,18 @@ public class ScoreScript : MonoBehaviour
 
     void Start()
     {
-        scoreText.text = score.ToString();
+        //GetComponent - cast highscore from load file to score var.
+        scoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        //scoreText.text = score.ToString();
+
+        levelText.text = "Level: " + PlayerPrefs.GetInt("Level").ToString();
     }
 
     public void AddPoints(int points)
     {
-        score += points;
-        scoreText.text = score.ToString();
+        //        score += points;
+        PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("HighScore") + points);
+        scoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+//        scoreText.text = score.ToString();
     }
 }

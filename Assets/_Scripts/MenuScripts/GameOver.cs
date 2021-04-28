@@ -5,25 +5,35 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     public GameObject gameOver;
+    public GameObject levelCompleted;
 
     // Start is called before the first frame update
     void Start()
     {
         gameOver.SetActive(false);
+        levelCompleted.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if ((GetComponent<HealthScript>().is_Player) && GetComponent<HealthScript>().is_Dead)
+        if ((GetComponent<HealthScript>().is_Player) && (GetComponent<HealthScript>().is_Dead))
         {
             TurnOnGameOver();
-            //Display highscore
+        }
+
+        if (EnemyManager.instance.enemy_Count == 0)
+        {
+            TurnOnLevelComplete();
         }
     }
 
-    void TurnOnGameOver()
+    public void TurnOnGameOver()
     {
         gameOver.SetActive(true);
+    }
+
+    public void TurnOnLevelComplete()
+    {
+        levelCompleted.SetActive(true);
     }
 }

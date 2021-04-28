@@ -19,8 +19,6 @@ public class weaponHandler : MonoBehaviour
     private AudioSource shootSound, reload_Sound;
 
     public WeaponFireType fireType;
-    public GameObject attack_Point; // if NPC has been hit or not
-
 
 
     void Awake() {
@@ -47,16 +45,4 @@ public class weaponHandler : MonoBehaviour
     void Play_ReloadSound() {
         reload_Sound.Play();
     }
-
-    void Turn_On_AttackPoint() {
-        attack_Point.SetActive(true);
-    }
-
-    void Turn_Off_AttackPoint() {
-        if (attack_Point.activeInHierarchy) {
-            attack_Point.SetActive(false);
-        }
-    }
-
-
 }

@@ -63,7 +63,7 @@ public class Menus : MonoBehaviour
 
   	public void ButtonHandlerSave()
     {
-        GetComponent<Data>().SavePlayer();
+//        GetComponent<Data>().SavePlayer();
     }
 
     public void ButtonHandlerQuit()

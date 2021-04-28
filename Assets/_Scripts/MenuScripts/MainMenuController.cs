@@ -7,12 +7,14 @@ public class MainMenuController : MonoBehaviour {
 
 	public void ButtonHandlerPlay ()
 	{
+		PlayerPrefs.SetInt("HighScore", 0);
+		PlayerPrefs.SetInt("Level", 1);
 		SceneManager.LoadScene(1);
 	}
 
 	public void ButtonHandlerLoad()
 	{
-		GetComponent<Data>().LoadPlayer();
+//		GetComponent<Data>().LoadPlayer();
 		SceneManager.LoadScene(1);
 	}
 

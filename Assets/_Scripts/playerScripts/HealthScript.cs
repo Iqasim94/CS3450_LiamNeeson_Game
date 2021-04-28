@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class HealthScript : MonoBehaviour
 {
@@ -81,6 +82,7 @@ public class HealthScript : MonoBehaviour
             // StartCoroutine
             StartCoroutine(DeadSound());
 
+            EnemyManager.instance.enemyDeath();
             ScoreScript.instance.AddPoints(10);
         }
 
@@ -92,9 +94,7 @@ public class HealthScript : MonoBehaviour
                 enemies[i].GetComponent<EnemyController>().enabled = false;
             }
 
-            // Call enemy manager to stop spawning enemies
-
-            GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+            GetComponent<FirstPersonController>().enabled = false;
             GetComponent<playerAttack>().enabled = false;
             GetComponent<weaponManager>().GetCurrentSelectedWeapon().gameObject.SetActive(false);
         }
@@ -103,19 +103,28 @@ public class HealthScript : MonoBehaviour
         {
             Invoke("TurnOffGameObject", 5f);
         }
+
+        if (EnemyManager.instance.enemy_Count == 0)
+        {
+            Invoke("NextLevel", 5f);
+        }
     }
 
     void TurnOffGameObject ()
-    {        
+    {
         gameObject.SetActive(false);
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     IEnumerator DeadSound()
     {
         yield return new WaitForSeconds(0.3f);
         enemyAudio.Play_DeadSound();
-        GameObject.FindWithTag(Tags.ENEMY_HEALTH).SetActive(false);
+    }
+
+    void NextLevel ()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
     }
 }
