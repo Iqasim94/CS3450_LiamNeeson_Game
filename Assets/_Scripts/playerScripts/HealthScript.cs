@@ -10,7 +10,7 @@ public class HealthScript : MonoBehaviour
     private NavMeshAgent navAgent;
     private EnemyController enemy_Controller;
 
-    public float PlayerHealth = 100f;
+    public float PlayerHealth;
     public float EnemyHealth;
     public bool is_Player, is_Enemy;
     public bool is_Dead;
