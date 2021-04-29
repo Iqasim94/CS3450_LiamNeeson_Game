@@ -75,7 +75,7 @@ public class HealthScript : MonoBehaviour
         {
             GetComponent<Animator>().enabled = false;
             GetComponent<BoxCollider>().isTrigger = false;
-            GetComponent<Rigidbody>().AddTorque(-transform.forward * 50f);
+            GetComponent<Rigidbody>().AddTorque(-transform.forward * 100f);
 
             enemy_Controller.enabled = false;
             navAgent.enabled = false;

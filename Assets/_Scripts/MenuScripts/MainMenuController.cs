@@ -11,7 +11,7 @@ public class MainMenuController : MonoBehaviour {
 		PlayerPrefs.SetInt("Level", 1);
 		PlayerPrefs.SetInt("Num_Enemies", 12);
 		PlayerPrefs.SetFloat("EnemyHealth", 100f);
-		PlayerPrefs.SetFloat("EnemyDamage", 2f);
+		PlayerPrefs.SetFloat("EnemyDamage", 10f);
 
 		SceneManager.LoadScene(1);
 	}
