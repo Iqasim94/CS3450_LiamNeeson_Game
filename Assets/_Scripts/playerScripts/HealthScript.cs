@@ -10,7 +10,8 @@ public class HealthScript : MonoBehaviour
     private NavMeshAgent navAgent;
     private EnemyController enemy_Controller;
 
-    public float health = 100f;
+    public float PlayerHealth = 100f;
+    public float EnemyHealth;
     public bool is_Player, is_Enemy;
     public bool is_Dead;
 
@@ -23,6 +24,7 @@ public class HealthScript : MonoBehaviour
     {
         if (is_Enemy)
         {
+            EnemyHealth = PlayerPrefs.GetFloat("EnemyHealth");
             enemy_Anim = GetComponent<EnemyAnimator>();
             enemy_Controller = GetComponent<EnemyController>();
             navAgent = GetComponent<NavMeshAgent>();
@@ -43,16 +45,16 @@ public class HealthScript : MonoBehaviour
             return;
         }
 
-        health -= damage;
-
         if (is_Player) //health UI
         {
-            player_Stats.Display_HealthStats(health);
+            PlayerHealth -= damage;
+            player_Stats.Display_HealthStats(PlayerHealth);
         }
 
         if (is_Enemy) //health UI
         {
-            enemy_Stats.Display_HealthStats(health);
+            EnemyHealth -= damage;
+            enemy_Stats.Display_HealthStats(EnemyHealth);
 
             if (enemy_Controller.Enemy_State == EnemyState.PATROL)
             {
@@ -60,7 +62,7 @@ public class HealthScript : MonoBehaviour
             }
         }
 
-        if (health <= 0f)
+        if (PlayerHealth <= 0f || EnemyHealth <= 0f)
         {
             PlayerDied();
             is_Dead = true;
@@ -126,5 +128,8 @@ public class HealthScript : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+        PlayerPrefs.SetInt("Num_Enemies", PlayerPrefs.GetInt("Num_Enemies") + 2);
+        PlayerPrefs.SetFloat("EnemyHealth", PlayerPrefs.GetFloat("EnemyHealth") + 20f);
+        PlayerPrefs.SetFloat("EnemyDamage", PlayerPrefs.GetFloat("EnemyDamage") + 2f);
     }
 }

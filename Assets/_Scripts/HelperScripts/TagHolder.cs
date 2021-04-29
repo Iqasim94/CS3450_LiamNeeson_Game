@@ -26,4 +26,8 @@ public class Tags
     public const string ENEMY_TAG = "Enemy";
 
     public const string ENEMY_HEALTH = "Enemy Health";
+
+    public const string NPC_GIRL = "NPC Girl";
+    public const string NPC_KEY = "NPC Key";
+
 }

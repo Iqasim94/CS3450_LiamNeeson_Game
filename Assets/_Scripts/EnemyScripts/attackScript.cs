@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class attackScript : MonoBehaviour
 {
-    public float damage = 2f;
     public float radius = 1f;
     public LayerMask layerMask;
 
@@ -14,7 +13,7 @@ public class attackScript : MonoBehaviour
         
         if (hits.Length > 0)
         {
-            hits[0].gameObject.GetComponent<HealthScript>().ApplyDamage(damage);
+            hits[0].gameObject.GetComponent<HealthScript>().ApplyDamage(PlayerPrefs.GetFloat("EnemyDamage"));
             gameObject.SetActive(false);
         }
     }

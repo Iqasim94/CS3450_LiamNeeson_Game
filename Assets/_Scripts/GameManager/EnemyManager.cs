@@ -7,9 +7,8 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager instance;
 
     [SerializeField]
-    private GameObject enemy_Prefab, NPC_Prefab, Key_Prefab;
+    public GameObject enemy_Prefab, NPC_Prefab, Key_Prefab;
 
-    [SerializeField]
     public int enemy_Count;
 
     public Transform[] enemy_SpawnPoints;
@@ -23,6 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
+        enemy_Count = PlayerPrefs.GetInt("Num_Enemies");
         SpawnEnemies();
         SpawnNPC();
     }

@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    public static GameOver instance;
+
     public GameObject gameOver;
     public GameObject levelCompleted;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         gameOver.SetActive(false);

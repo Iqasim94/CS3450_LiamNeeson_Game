@@ -9,12 +9,15 @@ public class MainMenuController : MonoBehaviour {
 	{
 		PlayerPrefs.SetInt("HighScore", 0);
 		PlayerPrefs.SetInt("Level", 1);
+		PlayerPrefs.SetInt("Num_Enemies", 12);
+		PlayerPrefs.SetFloat("EnemyHealth", 100f);
+		PlayerPrefs.SetFloat("EnemyDamage", 2f);
+
 		SceneManager.LoadScene(1);
 	}
 
 	public void ButtonHandlerLoad()
 	{
-//		GetComponent<Data>().LoadPlayer();
 		SceneManager.LoadScene(1);
 	}
 

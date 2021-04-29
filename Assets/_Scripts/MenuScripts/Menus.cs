@@ -63,7 +63,10 @@ public class Menus : MonoBehaviour
 
   	public void ButtonHandlerSave()
     {
-//        GetComponent<Data>().SavePlayer();
+        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level"));
+        PlayerPrefs.SetInt("Num_Enemies", PlayerPrefs.GetInt("Num_Enemies") + 2);
+        PlayerPrefs.SetFloat("EnemyHealth", PlayerPrefs.GetFloat("EnemyHealth") + 20f);
+        PlayerPrefs.SetFloat("EnemyDamage", PlayerPrefs.GetFloat("EnemyDamage") + 2f);
     }
 
     public void ButtonHandlerQuit()

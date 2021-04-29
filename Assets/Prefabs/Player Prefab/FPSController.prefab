@@ -803,7 +803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12b5ec3f769fa344b539425c2763981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  PlayerHealth: 100
+  EnemyHealth: 100
   is_Player: 1
   is_Enemy: 0
   is_Dead: 0
@@ -974,6 +975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
+  levelCompleted: {fileID: 0}
 --- !u!114 &2667117662608625005
 MonoBehaviour:
   m_ObjectHideFlags: 0
