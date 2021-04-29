@@ -10,7 +10,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 92f3926ab088d854e9635995036af132, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -106,7 +106,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1613cc0e7699f7d4b80400e6d112878e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -206,7 +206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 9047658823755704561}
-  reload_Sound: {fileID: 8888849742644421805}
   fireType: 0
 --- !u!82 &1187640598454619786
 AudioSource:
@@ -318,7 +317,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 1187640598454619786}
-  reload_Sound: {fileID: 0}
   fireType: 1
 --- !u!1 &4634715874973859607
 GameObject:
@@ -522,7 +520,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 2651429810961472178}
-  reload_Sound: {fileID: 0}
   fireType: 0
 --- !u!1 &6495334962492267201
 GameObject:
@@ -691,8 +688,8 @@ MonoBehaviour:
     clampVerticalRotation: 1
     MinimumX: -90
     MaximumX: 90
-    smooth: 0
-    smoothTime: 5
+    smooth: 1
+    smoothTime: 19
     lockCursor: 0
   m_UseFovKick: 1
   m_FovKick:

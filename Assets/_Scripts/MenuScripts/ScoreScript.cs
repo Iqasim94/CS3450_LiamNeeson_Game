@@ -9,6 +9,7 @@ public class ScoreScript : MonoBehaviour
     public static ScoreScript instance;
     public Text scoreText;
     public Text levelText;
+    public Text gameOverScore;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class ScoreScript : MonoBehaviour
     void Start()
     {
         scoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        gameOverScore.text = "HighScore: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
         levelText.text = "Level: " + PlayerPrefs.GetInt("Level").ToString();
     }
 
@@ -25,5 +27,6 @@ public class ScoreScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("HighScore") + points);
         scoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+        gameOverScore.text = "HighScore: " + PlayerPrefs.GetInt("HighScore").ToString();
     }
 }
