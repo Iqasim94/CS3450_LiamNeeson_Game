@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c038a642a3a399f43aac68add826c8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyItem: {fileID: 1330396653743532389, guid: 0558145c976892947bca6472cdc805c6, type: 3}
+  key_Prefab: {fileID: 0}
 --- !u!195 &3094377923337026885
 NavMeshAgent:
   m_ObjectHideFlags: 0

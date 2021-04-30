@@ -14,9 +14,9 @@ public class weaponHandler : MonoBehaviour
 
     [SerializeField]
     private GameObject muzzleFlash;
-    
+
     [SerializeField]
-    private AudioSource shootSound;
+    private AudioSource shootSound, reloadSound;
 
     public WeaponFireType fireType;
 
@@ -40,5 +40,10 @@ public class weaponHandler : MonoBehaviour
 
     void Play_ShootSound() {
         shootSound.Play();
+    }
+
+    void Play_ReloadSound()
+    {
+        reloadSound.Play();
     }
 }
